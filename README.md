@@ -1,90 +1,53 @@
----
+# 📚 Table of Contents – *KubrikAI: The Cinematic Language Model for Data*  
 
-✨ Introduction
+> *“KubrikAI doesn’t just translate SQL – it tells the story your data is trying to whisper.”*
 
-What is KubrikAI?
+## ✨ Introduction  
+- [What is KubrikAI?](#what-is-kubrikai)  
+- [Why KubrikAI?](#why-kubrikai)  
 
-Why KubrikAI?
+## ⚙️ Core Capabilities  
+- [🧠 Mixture of Experts (MoE) Architecture](#mixture-of-experts-moe-architecture)  
+- [📊 Schema-Aware Reasoning Engine](#schema-aware-reasoning-engine)  
+- [🔐 Policy-Aware Querying](#policy-aware-querying)  
+- [🌐 Multi-Database Intelligence](#multi-database-intelligence)  
+- [🗣️ Natural Language Interpretation](#natural-language-interpretation)  
+- [🎬 Contextual Flow & Resolution Layer](#contextual-flow--resolution-layer)  
 
+## 💡 Use Cases  
+- [📈 Business Intelligence & Analytics](#business-intelligence--analytics)  
+- [🛠️ DevTool Integrations](#devtool-integrations)  
+- [🏛️ Governance & Compliance](#governance--compliance)  
+- [🧪 Exploratory Data Analysis](#exploratory-data-analysis)  
 
-⚙️ Core Capabilities
+## 🚀 Quick Start  
+- [🔧 Installation](#installation)  
+- [⚡ Example Queries](#example-queries)  
+- [🧪 Interactive Notebook / API](#interactive-notebook--api)  
 
-🧠 Mixture of Experts (MoE) Architecture
+## 📁 Structure  
+- [📂 Project Layout](#project-layout)  
+- [🧩 Expert Modules Overview](#expert-modules-overview)  
 
-📊 Schema-Aware Reasoning Engine
+## 🛠️ Advanced Configuration  
+- [🔄 Expert Selection Routing](#expert-selection-routing)  
+- [🧠 Memory & Caching](#memory--caching)  
+- [🔌 Plugin/Tooling Support](#plugintooling-support)  
 
-🔐 Policy-Aware Querying
+## 📈 Benchmarks & Performance  
+- [🧪 Accuracy Metrics](#accuracy-metrics)  
+- [⚙️ Execution Speed](#execution-speed)  
+- [🧬 Generalization Ability](#generalization-ability)  
 
-🌐 Multi-Database Intelligence
+## 🔍 Prompting & Fine-tuning  
+- [🧠 Prompt Patterns](#prompt-patterns)  
+- [🛠️ Fine-tuning Guidelines](#fine-tuning-guidelines)  
 
-🗣️ Natural Language Interpretation
+## ⚡ Roadmap & Vision  
+- [🚀 Future Features](#future-features)  
+- [🤝 Collaborations & Research](#collaborations--research)  
 
-🎬 Contextual Flow & Resolution Layer
-
-
-💡 Use Cases
-
-📈 Business Intelligence & Analytics
-
-🛠️ DevTool Integrations
-
-🏛️ Governance & Compliance
-
-🧪 Exploratory Data Analysis
-
-
-🚀 Quick Start
-
-🔧 Installation
-
-⚡ Example Queries
-
-🧪 Interactive Notebook / API
-
-
-📁 Structure
-
-📂 Project Layout
-
-🧩 Expert Modules Overview
-
-
-🛠️ Advanced Configuration
-
-🔄 Expert Selection Routing
-
-🧠 Memory & Caching
-
-🔌 Plugin/Tooling Support
-
-
-📈 Benchmarks & Performance
-
-🧪 Accuracy Metrics
-
-⚙️ Execution Speed
-
-🧬 Generalization Ability
-
-
-🔍 Prompting & Fine-tuning
-
-🧠 Prompt Patterns
-
-🛠️ Fine-tuning Guidelines
-
-
-⚡ Roadmap & Vision
-
-🚀 Future Features
-
-🤝 Collaborations & Research
-
-
-🧾 License & Contribution
-
-📜 License
-
-🤲 Contributing
-
-✨ Credits
+## 🧾 License & Contribution  
+- [📜 License](#license)  
+- [🤲 Contributing](#contributing)  
+- [✨ Credits](#credits)
