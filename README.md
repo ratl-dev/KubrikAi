@@ -1,4 +1,4 @@
-# *KubrikAI: The Cinematic Language Model for Data*  
+# *KubrikAI: The Language Model for Data*  
 
 > *“KubrikAI doesn’t just translate SQL – it tells the story your data is trying to whisper.”*
 
