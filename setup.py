@@ -29,7 +29,13 @@ setup(
         "pyyaml>=6.0",
         "pytest>=7.0.0",
         "pytest-asyncio>=0.21.0",
+        "click>=8.0.0",
     ],
+    entry_points={
+        'console_scripts': [
+            'kubrik-ai=kubrik_ai.cli.main:cli',
+        ],
+    },
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",

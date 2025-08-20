@@ -4,10 +4,13 @@ kubrik_ai/__init__.py
 kubrik_ai.egg-info/PKG-INFO
 kubrik_ai.egg-info/SOURCES.txt
 kubrik_ai.egg-info/dependency_links.txt
+kubrik_ai.egg-info/entry_points.txt
 kubrik_ai.egg-info/requires.txt
 kubrik_ai.egg-info/top_level.txt
 kubrik_ai/api/__init__.py
+kubrik_ai/api/rest_api.py
 kubrik_ai/cli/__init__.py
+kubrik_ai/cli/main.py
 kubrik_ai/connectors/__init__.py
 kubrik_ai/core/__init__.py
 kubrik_ai/experts/__init__.py

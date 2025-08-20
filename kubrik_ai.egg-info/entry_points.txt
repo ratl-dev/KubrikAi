@@ -1,0 +1,2 @@
+[console_scripts]
+kubrik-ai = kubrik_ai.cli.main:cli
