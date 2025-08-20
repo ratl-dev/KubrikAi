@@ -1,0 +1,195 @@
+# KubrikAI Configuration
+# 
+# This configuration defines the intelligent routing behavior,
+# security policies, and performance parameters.
+
+# Database Router Configuration
+router:
+  # Stage 1: Schema similarity settings
+  similarity:
+    embedding_model: "all-MiniLM-L6-v2"  # Sentence transformer model
+    similarity_threshold: 0.3             # Minimum similarity to consider
+    max_candidates: 5                     # Max databases from stage 1
+    cache_embeddings: true                # Cache schema embeddings
+    
+  # Stage 2: Classification weights
+  scoring_weights:
+    similarity: 0.4          # Schema embedding similarity
+    domain_match: 0.3        # Domain alignment score  
+    freshness: 0.15          # Data freshness score
+    performance: 0.1         # Historical performance
+    policy_compliance: 0.05  # Policy violation penalty
+    
+  # Routing strategy
+  strategy: "weighted_ensemble"  # Options: weighted_ensemble, gating, cascaded
+  confidence_threshold: 0.5      # Minimum confidence to proceed
+  
+  # Performance settings
+  routing_timeout: 5000    # Max routing time in ms
+  cache_routing_decisions: true
+  cache_ttl: 3600         # Cache TTL in seconds
+
+# Global Security Policies
+security:
+  # Default policies applied to all databases
+  defaults:
+    read_only: true
+    max_rows: 1000
+    max_execution_time: 30
+    require_limit_clause: true
+    audit_all_queries: true
+    
+  # Blocked operations
+  blocked_operations:
+    - "DROP"
+    - "TRUNCATE" 
+    - "DELETE"
+    - "UPDATE"
+    - "INSERT"
+    - "CREATE"
+    - "ALTER"
+    
+  # SQL validation
+  validation:
+    use_sqlglot: true
+    check_injection: true
+    analyze_complexity: true
+    max_complexity_score: 20
+    
+  # Access control
+  access_control:
+    require_authentication: true
+    enforce_row_level_security: true
+    mask_sensitive_columns: true
+    log_policy_violations: true
+
+# Database-Specific Policies
+database_policies:
+  # Production databases - strict policies
+  production:
+    max_rows: 500
+    max_execution_time: 15
+    freshness_requirement: 12  # hours
+    require_where_clause: true
+    allowed_operations: ["SELECT"]
+    
+  # Analytics databases - more permissive
+  analytics:
+    max_rows: 10000
+    max_execution_time: 300
+    freshness_requirement: 48  # hours
+    allow_complex_queries: true
+    allow_aggregations: true
+    
+  # Development databases - moderate restrictions
+  development:
+    max_rows: 2000
+    max_execution_time: 60
+    allow_explain: true
+    allow_schema_introspection: true
+
+# Logging and Monitoring
+monitoring:
+  # Query logging
+  query_logging:
+    enabled: true
+    log_level: "INFO"
+    include_execution_plans: true
+    include_performance_metrics: true
+    
+  # Metrics collection
+  metrics:
+    collect_routing_stats: true
+    collect_performance_metrics: true
+    collect_policy_violations: true
+    retention_days: 30
+    
+  # Alerting
+  alerts:
+    policy_violations: true
+    performance_degradation: true
+    high_query_frequency: true
+    unusual_access_patterns: true
+
+# Domain Classification
+domain_classification:
+  # Keywords for automatic domain detection
+  keywords:
+    ecommerce:
+      - "order"
+      - "customer" 
+      - "product"
+      - "payment"
+      - "cart"
+      - "inventory"
+      - "purchase"
+      
+    finance:
+      - "account"
+      - "transaction"
+      - "balance"
+      - "payment"
+      - "invoice"
+      - "budget"
+      - "revenue"
+      
+    analytics:
+      - "metric"
+      - "event"
+      - "conversion"
+      - "funnel"
+      - "cohort"
+      - "segment"
+      - "trend"
+      
+    hr:
+      - "employee"
+      - "department"
+      - "salary"
+      - "performance"
+      - "attendance"
+      - "hire"
+      
+    marketing:
+      - "campaign"
+      - "lead"
+      - "conversion"
+      - "analytics"
+      - "segment"
+      - "attribution"
+
+# Performance Optimization
+performance:
+  # Connection pooling
+  connection_pools:
+    min_connections: 1
+    max_connections: 10
+    connection_timeout: 30
+    idle_timeout: 300
+    
+  # Query optimization
+  query_optimization:
+    auto_add_limits: true
+    suggest_indexes: true
+    detect_expensive_queries: true
+    cache_execution_plans: true
+    
+  # Resource limits
+  resource_limits:
+    max_memory_mb: 512
+    max_cpu_time_ms: 5000
+    max_concurrent_queries: 50
+
+# Integration Settings
+integrations:
+  # External services
+  external_services:
+    embedding_service: "local"  # local, openai, huggingface
+    monitoring_service: "none"  # none, prometheus, datadog
+    
+  # API configuration
+  api:
+    rate_limiting: true
+    requests_per_minute: 100
+    enable_cors: true
+    require_api_key: false
