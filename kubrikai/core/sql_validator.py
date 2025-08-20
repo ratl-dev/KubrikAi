@@ -52,15 +52,17 @@ class SQLValidator:
         # Security patterns to detect
         self.dangerous_patterns = [
             (r";\s*(drop|truncate|delete|update|insert)", "Multiple statements with write operations"),
-            (r"union\s+select", "UNION-based injection pattern"),
-            (r"(exec|execute)\s*\(", "Dynamic SQL execution"),
-            (r"xp_cmdshell", "Command execution function"),
-            (r"sp_executesql", "Dynamic SQL execution"),
-            (r"information_schema", "System catalog access"),
-            (r"pg_catalog", "PostgreSQL system catalog"),
-            (r"mysql\.", "MySQL system database"),
-            (r"sys\.", "System database access"),
-            (r"master\.", "Master database access")
+            (r"\bunion\s+select\b", "UNION-based injection pattern"),
+            (r"\b(exec|execute)\s*\(", "Dynamic SQL execution"),
+            (r"\bxp_cmdshell\b", "Command execution function"),
+            (r"\bsp_executesql\b", "Dynamic SQL execution"),
+            (r"\binformation_schema\b", "System catalog access"),
+            (r"\bpg_catalog\b", "PostgreSQL system catalog"),
+            (r"\bmysql\.", "MySQL system database"),
+            (r"\bsys\.", "System database access"),
+            (r"\bmaster\.", "Master database access"),
+            (r"\bdrop\s+table\b", "DROP TABLE operation"),
+            (r"\btruncate\s+table\b", "TRUNCATE TABLE operation")
         ]
         
         logger.info("Initialized SQLValidator with security patterns")
