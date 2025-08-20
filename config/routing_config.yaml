@@ -1,0 +1,120 @@
+"""
+Configuration file for intelligent routing system
+"""
+
+routing_config:
+  validation_level: "standard"  # basic, standard, strict
+  enable_metrics: true
+  enable_prometheus: true
+  max_routing_candidates: 3
+  default_query_timeout: 300
+  default_max_rows: 10000
+
+# Database configurations
+databases:
+  - id: "ecommerce_db"
+    type: "postgres"
+    connection: "postgresql://user:pass@localhost:5432/ecommerce"
+    read_only: true
+    max_concurrent_queries: 10
+    query_timeout_seconds: 300
+    max_result_rows: 10000
+    cost_weight: 1.0
+    performance_weight: 1.2
+    specializations: ["transactional", "real_time"]
+    
+  - id: "analytics_warehouse"
+    type: "bigquery"
+    connection: "bigquery://project/dataset"
+    read_only: true
+    max_concurrent_queries: 5
+    query_timeout_seconds: 600
+    max_result_rows: 50000
+    cost_weight: 2.0
+    performance_weight: 1.5
+    specializations: ["analytics", "aggregation"]
+    
+  - id: "metrics_db"
+    type: "postgres"
+    connection: "postgresql://user:pass@localhost:5433/metrics"
+    read_only: true
+    max_concurrent_queries: 15
+    query_timeout_seconds: 120
+    max_result_rows: 5000
+    cost_weight: 0.8
+    performance_weight: 1.0
+    specializations: ["real_time", "time_series"]
+
+# Routing rules
+routing_rules:
+  - name: "analytics_queries"
+    priority: 10
+    condition:
+      query_type: "analytical"
+    target_database: "analytics_warehouse"
+    
+  - name: "realtime_metrics"
+    priority: 8
+    condition:
+      domain: "metrics"
+      specialization: "real_time"
+    target_database: "metrics_db"
+    
+  - name: "ecommerce_transactional"
+    priority: 5
+    condition:
+      domain: "e-commerce"
+      query_type: "select"
+    target_database: "ecommerce_db"
+
+# User roles and permissions
+user_roles:
+  analyst:
+    permissions:
+      - "table:*"
+    query_limits:
+      max_execution_time_seconds: 600
+      max_result_rows: 50000
+      max_concurrent_queries: 5
+      
+  developer:
+    permissions:
+      - "table:ecommerce_db.*"
+      - "table:metrics_db.*"
+    query_limits:
+      max_execution_time_seconds: 300
+      max_result_rows: 10000
+      max_concurrent_queries: 3
+      
+  viewer:
+    permissions:
+      - "table:*.public.*"
+    query_limits:
+      max_execution_time_seconds: 120
+      max_result_rows: 1000
+      max_concurrent_queries: 2
+
+# Security settings
+security:
+  rate_limit_queries_per_minute: 30
+  max_query_complexity: 100
+  forbidden_keywords:
+    - "DROP"
+    - "DELETE"
+    - "UPDATE"
+    - "INSERT"
+    - "CREATE"
+    - "ALTER"
+    - "TRUNCATE"
+    - "GRANT"
+    - "REVOKE"
+
+# Logging and monitoring
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+metrics:
+  cleanup_interval_hours: 24
+  retention_hours: 168  # 1 week
+  prometheus_port: 8000
