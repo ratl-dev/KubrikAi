@@ -3,7 +3,7 @@
 > *“KubrikAI doesn’t just translate SQL – it tells the story your data is trying to whisper.”*
 
 
-> 📍 **Looking for the agents/experts code?** See **[AGENTS_ARCHITECTURE.md](AGENTS_ARCHITECTURE.md)** for a complete guide to where the agent code is located and how the architecture works.
+> 📍 **Looking for the agents/experts code?** See **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** for a quick answer or **[AGENTS_ARCHITECTURE.md](AGENTS_ARCHITECTURE.md)** for complete details.
 ## ✨ Introduction  
 - [What is KubrikAI?](#what-is-kubrikai)  
 - [Why KubrikAI?](#why-kubrikai)
