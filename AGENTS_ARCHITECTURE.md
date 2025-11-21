@@ -37,7 +37,7 @@ kubrikai/
 ## 🏗️ Agent Architecture Mapping
 
 ### 1. Schema Expert → `schema_engine.py`
-**Location**: `/home/runner/work/KubrikAi/KubrikAi/kubrikai/core/schema_engine.py`
+**Location**: `kubrikai/core/schema_engine.py`
 
 **Functionality**:
 - Database schema representation and embedding
@@ -52,7 +52,7 @@ kubrikai/
 - `QueryAnalysis`: Query understanding results
 
 ### 2. Policy Expert → `policy_engine.py`
-**Location**: `/home/runner/work/KubrikAi/KubrikAi/kubrikai/core/policy_engine.py`
+**Location**: `kubrikai/core/policy_engine.py`
 
 **Functionality**:
 - Database access control
@@ -69,8 +69,8 @@ kubrikai/
 
 ### 3. Syntax Expert → `sql_validator.py` + `connectors/`
 **Location**: 
-- `/home/runner/work/KubrikAi/KubrikAi/kubrikai/core/sql_validator.py`
-- `/home/runner/work/KubrikAi/KubrikAi/kubrikai/connectors/`
+- `kubrikai/core/sql_validator.py`
+- `kubrikai/connectors/`
 
 **Functionality**:
 - SQL syntax validation using SQLGlot
@@ -85,7 +85,7 @@ kubrikai/
 - Database connectors: PostgreSQL, MySQL, etc. (dialect-specific)
 
 ### 4. Optimization Expert → `router.py` (Stage 2)
-**Location**: `/home/runner/work/KubrikAi/KubrikAi/kubrikai/core/router.py`
+**Location**: `kubrikai/core/router.py`
 
 **Functionality**:
 - Performance-based database selection
