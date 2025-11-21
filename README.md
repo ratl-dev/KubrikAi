@@ -2,6 +2,8 @@
 
 > *“KubrikAI doesn’t just translate SQL – it tells the story your data is trying to whisper.”*
 
+
+> 📍 **Looking for the agents/experts code?** See **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** for a quick table, **[ARCHITECTURE_DIAGRAM.md](ARCHITECTURE_DIAGRAM.md)** for visual diagrams, or **[AGENTS_ARCHITECTURE.md](AGENTS_ARCHITECTURE.md)** for complete details.
 ## ✨ Introduction  
 - [What is KubrikAI?](#what-is-kubrikai)  
 - [Why KubrikAI?](#why-kubrikai)
@@ -226,6 +228,8 @@ KubrikAI/
 ```
 
 ### 🧩 Expert Modules Overview
+
+> **Note**: The above project layout shows the planned architecture. For the current implementation and where to find agent/expert code, see [AGENTS_ARCHITECTURE.md](AGENTS_ARCHITECTURE.md).
 
 **Schema Expert**: Analyzes database metadata, infers relationships, and maintains a semantic understanding of data structure.
 
